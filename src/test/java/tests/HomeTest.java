@@ -4,8 +4,10 @@ import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-public class HomeTest {
+public class HomeTest extends TestData{
     PsgeTest  registrationPage = new  PsgeTest ();
+
+
 
 
     @BeforeAll
@@ -13,7 +15,7 @@ public class HomeTest {
         Configuration.browserSize = "1920x1080";
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.pageLoadStrategy = "eager";
-        Configuration.holdBrowserOpen = true;
+       // Configuration.holdBrowserOpen = true;
     }
 
 
@@ -21,16 +23,16 @@ public class HomeTest {
     void registrationTest() {
 
         registrationPage.openPage()
-                .setFirstName("Viruz")
-                .setLastName("Braman")
-                .setUserEmail("viruz@gmail.com")
+                .setFirstName(firstName)
+                .setLastName(lastName)
+                .setUserEmail(userEmail)
                 .setGenter("Male")
                 .setUserNumber("0000000000")
                 .setDateOfBirth("29","May", "1987")
                 .setSubjects()
                 .setHobbies("Sports")
                 .setImg("img/1.img")
-                .setAdres("Street")
+                .setAdres(streetAddress)
                 .setState()
                 .setCity()
                 .setSubmit()

@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.*;
 
-public class PsgeTest {
+public class PsgeTest extends TestData{
 
     private SelenideElement firstNameInput = $("#firstName");
     private SelenideElement lastNameInput = $("#lastName");
@@ -23,6 +23,7 @@ public class PsgeTest {
 
 
     Calendar1 calendar = new Calendar1();
+
 
 
     public PsgeTest openPage() {
@@ -104,11 +105,11 @@ public class PsgeTest {
     }
 
     public PsgeTest setRespons() {
-        $$(".table-responsive").shouldHave(texts("Viruz Braman"));
-        $$(".table-responsive").shouldHave(texts("viruz@gmail.com"));
+        $$(".table-responsive").shouldHave(texts(firstName, lastName));
+        $(".table-responsive").shouldHave(text(userEmail));
         $$(".table-responsive").shouldHave(texts("Male"));
         $$(".table-responsive").shouldHave(texts("0000000000"));
-        $(".table-responsive").shouldHave(text("29 May,1987"),text("English"),text("Sports"));
+        $(".table-responsive").shouldHave(text("29 May,1987"),text("English"),text("Sports"), text(streetAddress));
         return this;
 
 //    public RegistrationPage checkResult(String key, String value) {
